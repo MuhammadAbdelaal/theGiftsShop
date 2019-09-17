@@ -1,0 +1,39 @@
+@import '../../styles';
+
+.navbar {
+    & {
+        background-color: $white;
+        border-bottom: 1px solid $muted;
+    }
+
+    &.navbar-dark {
+        .navbar-toggler {
+            background-color: $primary;
+            &:focus {
+                outline: none;
+            }
+        }
+        
+    }
+    .navbar-brand {
+        color: $primary;
+        &:hover {
+            color: $primary;
+        }
+    }
+
+    .nav-item {
+        .nav-link {
+            color: $black;
+            &.active{
+                color: $primary;
+            }
+        }
+        &:hover {
+            .nav-link {
+                color: $primary;
+            }
+        }
+    }
+
+}
