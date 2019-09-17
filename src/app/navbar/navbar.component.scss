@@ -35,5 +35,20 @@
             }
         }
     }
-
+    
+    #cart-icon-div {
+        &{
+            position: relative;
+        }
+        #cart-items {
+            position: absolute;
+            right: -3px;
+            bottom: 15px;
+            border-radius: 50%;
+            padding: 1px 5px;
+            color: $primary;
+            font-weight: 500;
+            font-size: 14px;
+           }
+    }
 }
