@@ -1,0 +1,20 @@
+@import 'colors';
+
+@mixin headerDivText ($padding) {
+    position: absolute;
+    text-transform: uppercase;
+    bottom: 20%;
+    left: 20%;
+    right: 20%;
+    background-color: $white;
+    opacity: 0.8;
+    margin: auto;
+    align-items: center;
+    border-radius: 10px;
+    padding: $padding;
+    transition: all .2s;
+    &:hover{
+       opacity: 0.9;
+       transform: scale(1.05);
+    }
+}

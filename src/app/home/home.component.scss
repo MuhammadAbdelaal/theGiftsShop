@@ -1,0 +1,38 @@
+@import '../styles/colors';
+@import '../styles/mixins';
+
+ /* ###########################################
+ *        ###### Header Start #######        */
+header {
+      
+    .one, .two, .three, .four  {
+        position: relative;
+    }
+
+    .onetext {
+        @include headerDivText(20px 40px);
+    }
+
+    .twotext, .threetext, .fourtext
+    {
+        @include headerDivText(15px 25px);
+    }
+ }
+ 
+
+ @media screen and (max-width: 420px) {
+    header {
+        * {
+            font-size: 1rem;
+        }
+        .twotext, .threetext {
+            font-size: 14px;
+            padding: 10px 15px;
+        }      
+    }     
+   }
+
+   
+ /*        ###### Header End #######
+ * ######################################## */
+ 
