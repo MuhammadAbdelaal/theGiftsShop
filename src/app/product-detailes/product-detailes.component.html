@@ -1,0 +1,23 @@
+<section>
+  <div class="container my-5 py-5">
+
+    <div *ngIf='!product'>
+      <app-notfound></app-notfound>
+    </div>
+    <div *ngIf="product">
+      <div class="row">
+        <div class="col-lg-6 col-md-7">
+            <img [src]="product.imgURL" alt="">
+        </div>
+        <div class="col-lg-6 col-md-5">
+          <div class="pt-3 px-2">
+            <h4 class="text-primary">{{ product.desc }}</h4>
+            <p>{{product.brand}}</p>
+            <h5>Price: <span class="text-info">{{ product.price | currency }}</span></h5>
+            <p class="text-muted">{{ product.longDesc }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
