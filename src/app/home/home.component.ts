@@ -9,10 +9,22 @@ import { ProductsService } from '../products.service';
 export class HomeComponent implements OnInit {
 
   menProducts:Array<object>;
+  subMenProudcts:Array<object>;
+
+  womenProducts:Array<object>;
+  subWomenProudcts:Array<object>;
 
   constructor(_ProductsService: ProductsService) {
     
     this.menProducts = _ProductsService.menProducts; //fetching men products from the Service
+    this.subMenProudcts = this.menProducts.slice(0, 5); //get only the first 5 men products
+
+    this.womenProducts = _ProductsService.womenProducts; //fetching men products from the Service
+    this.subWomenProudcts = this.womenProducts.slice(0, 5); //get only the first 5 men products
+
+
+
+
    }
    
 
