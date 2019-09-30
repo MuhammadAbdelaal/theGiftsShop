@@ -4,7 +4,7 @@
         <div class="row mainrow">
             <div class="col-lg-6 col-md-12 col-sm-12 col-12">
                 <div class="one mb-4">
-                    <img class="img-fluid" src="../../assets/img/demo04_01_600x.jpg" alt="">
+                    <img class="img-fluid" src="assets/img/demo04_01_600x.jpg" alt="">
                     <a class="d-block text-dark text-decoration-none" routerLink="/products">
                         <div class="onetext text-center">
                             <h6>Assorted</h6>
@@ -18,7 +18,7 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="two mb-4">
-                            <img class="img-fluid" src="../../assets/img/demo04_02_300x.jpg" alt="">
+                            <img class="img-fluid" src="assets/img/demo04_02_300x.jpg" alt="">
                             <a class="d-block text-dark text-decoration-none" routerLink="/products">
                                 <div class="twotext text-center">
                                     Women
@@ -28,7 +28,7 @@
                     </div>
                     <div class="col-6">
                         <div class="three mb-4">
-                            <img class="img-fluid" src="../../assets/img/demo04_03_300x.jpg" alt="">
+                            <img class="img-fluid" src="assets/img/demo04_03_300x.jpg" alt="">
 
                             <a class="d-block text-dark text-decoration-none" routerLink="/products">
                                 <div class="threetext text-center">
@@ -41,7 +41,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="four">
-                            <img class="img-fluid" src="../../assets/img/demo04_04_600x.jpg" alt="">
+                            <img class="img-fluid" src="assets/img/demo04_04_600x.jpg" alt="">
 
                             <a class="d-block text-dark text-decoration-none" routerLink="/products">
                                 <div class="fourtext text-center">
@@ -137,41 +137,68 @@
 
 <!-- recommended for women section start -->
 <section>
-        <div class="container">
-            <div class="row py-3">
-                <h3 class="ml-3 text-primary">Recommended for Women</h3>
-            </div>
-            <owl-carousel [options]="myCarouselOptions" [carouselClasses]="['owl-theme', 'sliding']">
-                <div *ngFor='let product of subWomenProudcts; index as productId' class="item">
-                    <div class="card border-0 text-center">
-                        <div class="product-top">
-                            <div class="product-overlay" aria-hidden="true" data-toggle="modal"
-                                data-target="#quickViewModal">
-                                <i class="fa fa-eye"></i>
-                            </div>
-                            <a [routerLink]="['/products', productId]">
-                                <img class="card-img-top" [src]="product.imgURL" alt="">
-                            </a>
+    <div class="container">
+        <div class="row py-3">
+            <h3 class="ml-3 text-primary">Recommended for Women</h3>
+        </div>
+        <owl-carousel [options]="myCarouselOptions" [carouselClasses]="['owl-theme', 'sliding']">
+            <div *ngFor='let product of subWomenProudcts; index as productId' class="item">
+                <div class="card border-0 text-center">
+                    <div class="product-top">
+                        <div class="product-overlay" aria-hidden="true" data-toggle="modal"
+                            data-target="#quickViewModal">
+                            <i class="fa fa-eye"></i>
                         </div>
-                        <div class="card-body">
-                            <p class="card-text text-muted">{{product.brand}}</p>
-                            <span class="prodcut-review text-warning">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            <h6 class="card-title font-weight-normal">{{product.desc}}</h6>
-                            <div>$<span class="product-price text-info">{{product.price}}</span></div>
-                            <button class="btn btn-primary p-2">
-                                <i class="fa fa-shopping-basket"></i>
-                                Add to Cart
-                            </button>
-                        </div>
+                        <a [routerLink]="['/products', productId]">
+                            <img class="card-img-top" [src]="product.imgURL" alt="">
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text text-muted">{{product.brand}}</p>
+                        <span class="prodcut-review text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <i class="far fa-star"></i>
+                        </span>
+                        <h6 class="card-title font-weight-normal">{{product.desc}}</h6>
+                        <div>$<span class="product-price text-info">{{product.price}}</span></div>
+                        <button class="btn btn-primary p-2">
+                            <i class="fa fa-shopping-basket"></i>
+                            Add to Cart
+                        </button>
                     </div>
                 </div>
-            </owl-carousel>
+            </div>
+        </owl-carousel>
+    </div>
+</section>
+<!-- recommended for women section end -->
+
+<!-- pre-footer section start  -->
+<section class="pre-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-12 pb-5">
+                <div class="left">
+                    <img class="img-fluid" src="assets/img/demo04_05_600x.jpg" alt="">
+                    <a class="left-text d-block text-center text-decoration-none text-dark" routerLink="/products">
+                        <p>new in:</p>
+                        <h4>Clothing</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6 col-12  pb-5">
+                <div class="left">
+                    <img class="img-fluid" src="assets/img/demo04_06_600x.jpg" alt="">
+                    <a class="left-text d-block text-center text-decoration-none text-dark" routerLink="/products">
+                        <p>clearance sales</p>
+                        <h4>get up to 20% off</h4>
+                    </a>
+                </div>
+            </div>
         </div>
-    </section>
-    <!-- recommended for women section end -->
+    </div>
+</section>
+<!-- pre-footer section end  -->

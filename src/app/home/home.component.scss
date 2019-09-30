@@ -10,12 +10,12 @@ header {
     }
 
     .onetext {
-        @include headerDivText(20px 40px);
+        @include TextDiv(20px 40px);
     }
 
     .twotext, .threetext, .fourtext
     {
-        @include headerDivText(15px 25px);
+        @include TextDiv(15px 25px);
     }
  }
  
@@ -108,4 +108,23 @@ header {
     }
 }
 /* ###### Product Card Component End #######
+ * ######################################## */
+
+
+  
+
+
+/* ###########################################
+ * ###### Pre-footer section Start ####### */
+.pre-footer {
+    .left {
+        position: relative;
+    }
+
+    .left-text {
+        @include TextDiv(15px 25px);
+    }
+}
+
+ /* ###### Pre-footer section End #######
  * ######################################## */
