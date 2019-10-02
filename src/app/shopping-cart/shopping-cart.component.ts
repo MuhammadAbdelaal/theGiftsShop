@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingCartComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    window.scroll(0,0); //prevent scrolling dowon as default behavior
+   }
 
   ngOnInit() {
   }

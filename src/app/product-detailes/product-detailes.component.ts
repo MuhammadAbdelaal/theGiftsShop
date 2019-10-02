@@ -14,6 +14,8 @@ export class ProductDetailesComponent implements OnInit {
 
 
   constructor(private route: ActivatedRoute, _ProductsService: ProductsService) {
+    window.scroll(0,0); //prevent scrolling dowon as default behavior
+    
     this.products = _ProductsService.products;
   }
 

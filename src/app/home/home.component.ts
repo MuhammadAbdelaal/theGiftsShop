@@ -17,7 +17,8 @@ export class HomeComponent implements OnInit {
   modalLongDesc: String = "";
 
   constructor(_ProductsService: ProductsService) {
-
+    window.scroll(0,0); //prevent scrolling dowon as default behavior
+    
     this.products = _ProductsService.products;
     
   }

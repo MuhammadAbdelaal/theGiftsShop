@@ -1,0 +1,10 @@
+@import '../styles/colors';
+
+ .about
+ {
+     background-image: url('assets/img/about_01.png');
+     background-size: cover;
+     background-position: center;
+     color: $white;
+     margin: 0 !important; /* to fix horizontal scroll*/
+ }
