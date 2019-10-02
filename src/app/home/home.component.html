@@ -71,15 +71,13 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-6">
-                        <img class='img-fluid' src="" alt="">
+                        <img class='img-fluid' [src]="modalImage" alt="">
                     </div>
                     <div class="col-6 py-3">
-                        <h3 class="modalDesc"></h3>
-                        <p class="modalBrand card-text text-muted"></p>
-                        <h4>$<span class="product-price text-info"></span></h4>
-                        <p>long description long description long description
-                            long description long description long description
-                            long description long description long description
+                        <h3 class="modalDesc"> {{modalDesc}}</h3>
+                        <p class="modalBrand card-text text-muted">{{modalBrand}}</p>
+                        <h4>$<span class="product-price text-info">{{modalPrice}}</span></h4>
+                        <p>{{modalLongDesc}}
                         </p>
                         <button class="btn btn-primary p-2">
                             <i class="fa fa-shopping-basket"></i>
@@ -95,89 +93,98 @@
 
 <!-- recommended for men section start -->
 <section>
-    <div class="container">
+    <div class="container py-2">
         <div class="row py-3">
             <h3 class="ml-3 text-primary">Recommended for Men</h3>
         </div>
         <owl-carousel [options]="myCarouselOptions" [carouselClasses]="['owl-theme', 'sliding']">
-            <div *ngFor='let product of subMenProudcts; index as productId' class="item">
-                <div class="card border-0 text-center">
-                    <div class="product-top">
-                        <div class="product-overlay" aria-hidden="true" data-toggle="modal"
-                            data-target="#quickViewModal">
-                            <i class="fa fa-eye"></i>
+            <ng-container *ngFor='let product of products; index as productId'>
+                <div *ngIf='product.type == "men"' class="item">
+                    <div class="card border-0 text-center">
+                        <div class="product-top">
+                            <div class="product-overlay" 
+                                (click)='setModalData(product.imgURL, product.price,
+                                product.brand, product.desc, product.longDesc )'
+                                aria-hidden="true"
+                                data-toggle="modal" data-target="#quickViewModal">
+                                <i class="fa fa-eye"></i>
+                            </div>
+                            <a [routerLink]="['/products', productId]">
+                                <img class="card-img-top" [src]="product.imgURL" alt="">
+                            </a>
                         </div>
-                        <a [routerLink]="['/products', productId]">
-                            <img class="card-img-top" [src]="product.imgURL" alt="">
-                        </a>
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text text-muted">{{product.brand}}</p>
-                        <span class="prodcut-review text-warning">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <i class="far fa-star"></i>
-                        </span>
-                        <h6 class="card-title font-weight-normal">{{product.desc}}</h6>
-                        <div>$<span class="product-price text-info">{{product.price}}</span></div>
-                        <button class="btn btn-primary p-2">
-                            <i class="fa fa-shopping-basket"></i>
-                            Add to Cart
-                        </button>
+                        <div class="card-body">
+                            <p class="card-text text-muted">{{product.brand}}</p>
+                            <span class="prodcut-review text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                            </span>
+                            <h6 class="card-title font-weight-normal">{{product.desc}}</h6>
+                            <div>$<span class="product-price text-info">{{product.price}}</span></div>
+                            <div class="btn btn-primary p-2">
+                                <i class="fa fa-shopping-basket"></i>
+                                Add to Cart
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </ng-container>
         </owl-carousel>
     </div>
 </section>
 <!-- recommended for men section end -->
 
-
 <!-- recommended for women section start -->
 <section>
-    <div class="container">
+    <div class="container py-2">
         <div class="row py-3">
             <h3 class="ml-3 text-primary">Recommended for Women</h3>
         </div>
         <owl-carousel [options]="myCarouselOptions" [carouselClasses]="['owl-theme', 'sliding']">
-            <div *ngFor='let product of subWomenProudcts; index as productId' class="item">
-                <div class="card border-0 text-center">
-                    <div class="product-top">
-                        <div class="product-overlay" aria-hidden="true" data-toggle="modal"
-                            data-target="#quickViewModal">
-                            <i class="fa fa-eye"></i>
+            <ng-container *ngFor='let product of products; index as productId'>
+                <div *ngIf='product.type == "women"' class="item">
+                    <div class="card border-0 text-center">
+                        <div class="product-top">
+                            <div class="product-overlay" 
+                                (click)='setModalData(product.imgURL, product.price,
+                                product.brand, product.desc, product.longDesc )'
+                                aria-hidden="true"
+                                data-toggle="modal" data-target="#quickViewModal">
+                                <i class="fa fa-eye"></i>
+                            </div>
+                            <a [routerLink]="['/products', productId]">
+                                <img class="card-img-top" [src]="product.imgURL" alt="">
+                            </a>
                         </div>
-                        <a [routerLink]="['/products', productId]">
-                            <img class="card-img-top" [src]="product.imgURL" alt="">
-                        </a>
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text text-muted">{{product.brand}}</p>
-                        <span class="prodcut-review text-warning">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <i class="far fa-star"></i>
-                        </span>
-                        <h6 class="card-title font-weight-normal">{{product.desc}}</h6>
-                        <div>$<span class="product-price text-info">{{product.price}}</span></div>
-                        <button class="btn btn-primary p-2">
-                            <i class="fa fa-shopping-basket"></i>
-                            Add to Cart
-                        </button>
+                        <div class="card-body">
+                            <p class="card-text text-muted">{{product.brand}}</p>
+                            <span class="prodcut-review text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                            </span>
+                            <h6 class="card-title font-weight-normal">{{product.desc}}</h6>
+                            <div>$<span class="product-price text-info">{{product.price}}</span></div>
+                            <div class="btn btn-primary p-2">
+                                <i class="fa fa-shopping-basket"></i>
+                                Add to Cart
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </ng-container>
         </owl-carousel>
     </div>
 </section>
 <!-- recommended for women section end -->
 
 <!-- pre-footer section start  -->
-<section class="pre-footer">
+<section class="pre-footer pt-5">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-12 pb-5">

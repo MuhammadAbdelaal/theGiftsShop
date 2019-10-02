@@ -1,6 +1,10 @@
 .row {
     img{
-        max-height: 550px;
+        max-height: 500px;
         width: 100%;
+    }
+
+    .longDesc {
+        line-height: 35px;
     }
 }

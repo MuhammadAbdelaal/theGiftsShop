@@ -8,52 +8,52 @@ import { ProductsService } from '../products.service';
 })
 export class HomeComponent implements OnInit {
 
-  menProducts:Array<object>;
-  subMenProudcts:Array<object>;
-
-  womenProducts:Array<object>;
-  subWomenProudcts:Array<object>;
+  products: Array<any> = [];
+  
+  modalImage: String = "";
+  modalPrice: Number;
+  modalBrand: String = "";
+  modalDesc: String = "";
+  modalLongDesc: String = "";
 
   constructor(_ProductsService: ProductsService) {
+
+    this.products = _ProductsService.products;
     
-    this.menProducts = _ProductsService.menProducts; //fetching men products from the Service
-    this.subMenProudcts = this.menProducts.slice(0, 5); //get only the first 5 men products
+  }
 
-    this.womenProducts = _ProductsService.womenProducts; //fetching men products from the Service
-    this.subWomenProudcts = this.womenProducts.slice(0, 5); //get only the first 5 men products
+  setModalData(imagUrl:String, Price:Number, Brand: String, Desc: String, LongDesc: String) {
+    this.modalImage = imagUrl;
+    this.modalPrice = Price;
+    this.modalBrand = Brand;
+    this.modalDesc = Desc;
+    this.modalLongDesc = LongDesc;
+  }
 
-
-
-
-   }
-   
 
   ngOnInit() {
   }
 
   myCarouselOptions = {
-    loop: true,
+    loop: false,
     margin: 20,
     nav: true,
     dots: false,
-    autoplay: true,
-    autoplayTimeout: 1500,
-    autoplayHoverPause:true,
-    responsive:{
-      0:{
-          items:1,
-          nav: false,
+    responsive: {
+      0: {
+        items: 1,
+        nav: false,
       },
-      600:{
-          items:2
+      600: {
+        items: 2
       },
-      800:{
-          items:3
+      800: {
+        items: 3
       },
-      1000:{
-        items:4
+      1000: {
+        items: 4
       }
-  }
+    }
   }
 
 }

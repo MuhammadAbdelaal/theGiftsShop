@@ -78,7 +78,10 @@ header {
         * {
             margin: 2px;
         }
-        button {
+        .btn {
+            position: absolute;
+            left: 25%;
+            right: 25%;
             transform: scale(0);
             transition: all .25s;
         }
@@ -89,9 +92,7 @@ header {
             & {
                 transform: translate(0, -50px);
             }
-            button {
-                left: 0%;
-                right: 0%;
+            .btn {
                 transform: scale(1);
             }
         }

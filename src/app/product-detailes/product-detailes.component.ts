@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {ProductsService } from '../products.service';
+import { ProductsService } from '../products.service';
 
 @Component({
   selector: 'app-product-detailes',
@@ -8,19 +8,21 @@ import {ProductsService } from '../products.service';
   styleUrls: ['./product-detailes.component.scss']
 })
 export class ProductDetailesComponent implements OnInit {
-  
-  products:Array<object>; //container for men products
-  product:object; //each product
+
+  products: Array<any> = [];
+  product: any; //each product
+
 
   constructor(private route: ActivatedRoute, _ProductsService: ProductsService) {
-    this.products = _ProductsService.menProducts; // fetching men products from the Service
-   }
+    this.products = _ProductsService.products;
+  }
 
   ngOnInit() {
-      // router for each product with unique url
-      this.route.paramMap.subscribe(params => {
-      this.product = this.products[+params.get('productId')];
+    // router for each men product with unique url
+    this.route.paramMap.subscribe(params => {
+      this.product = this.products[params.get('productId')];
     });
+
   }
 
 }
