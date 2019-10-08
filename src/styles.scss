@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Philosopher&display=swap');
 @import 'app/styles/colors';
 
+
+// global styles for all elements
 body, html {
     font-family: 'Philosopher', sans-serif;
 }
@@ -15,6 +17,9 @@ p {
     margin-bottom: 5px;
 }
 
+// end of global styles for all elements 
+
+// wol navs start
 div.owl-nav{
 
     button.owl-next,
@@ -34,3 +39,79 @@ div.owl-nav{
         right: -40px;
     }
 }
+// owl navs end
+
+/* ###########################################
+ * ###### Product Card Component Start ####### */
+ #product {
+    .product-top {
+        & {
+            position: relative;
+        }
+        .product-overlay {
+            position: absolute;
+            top: 20%;
+            right: 4%;
+            padding: 8px 10px;
+            background-color: $white;
+            color: $dark;
+            border-radius: 50%;
+            transform: scale(0);
+            overflow: hidden;
+            transition: all .25s;
+        }
+
+        &:hover {
+            .product-overlay {
+                transform: scale(1.1);
+                overflow: hidden;
+                &:hover {
+                    cursor: pointer;
+                    background-color: $primary;
+                    color: $white;
+                }
+            }
+        }
+    }
+    .card-body {
+        padding: 5px;
+        position: relative;
+        background-color: $white;
+        transition: all .25s;
+        * {
+            margin: 2px;
+        }
+        .btn {
+            position: absolute;
+            left: 25%;
+            right: 25%;
+            transform: scale(0);
+            transition: all .25s;
+        }
+    }
+
+    &:hover {
+        .card-body {
+            & {
+                transform: translate(0, -50px);
+            }
+            .btn {
+                transform: scale(1);
+            }
+        }
+
+        
+    }
+
+}
+
+.modal {
+    .modal-dialog {
+        top: 10%;
+        max-width: 70%;
+        margin: 0 auto;
+    }
+}
+/* ###### Product Card Component End #######
+ * ######################################## */
+

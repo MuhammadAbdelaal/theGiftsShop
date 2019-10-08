@@ -1,3 +1,152 @@
-<section class="my-5">
-<p>products works!</p>
+<section class="my-5 py-5">
+
+    <!-- Modal -->
+    <div class="modal fade" id="quickViewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 col-12">
+                            <img class='img-fluid' [src]="modalImage" alt="">
+                        </div>
+                        <div class="col-md-6 col-12 py-3">
+                            <h3 class="modalDesc"> {{modalDesc}}</h3>
+                            <p class="modalBrand card-text text-muted">{{modalBrand}}</p>
+                            <h4>$<span class="product-price text-info">{{modalPrice}}</span></h4>
+                            <p>{{modalLongDesc}}
+                            </p>
+                            <button class="btn btn-primary p-2">
+                                <i class="fa fa-shopping-basket"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal end -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 pr-4 pt-5">
+                <div class="accordion" id="accordionExample">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse"
+                                    data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Collections
+                                </button>
+                            </h2>
+                        </div>
+
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item" [class.active]="menClicked"
+                                        (click)="setType('Men')">
+                                        <a class="nav-link">Men</a>
+                                    </li>
+                                    <li class="nav-item" [class.active]="womenClicked"
+                                        (click)="setType('Women')">
+                                        <a class="nav-link">Women</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-12">
+                        <h4>{{type}}</h4>
+                        <hr>
+                    </div>
+                    <div *ngIf='type == "Men"'>
+                        <div class="row">
+                            <ng-container *ngFor='let product of products; index as productId'>
+                                <div *ngIf='product.type == "men"' class="item col-md-4 col-12">
+                                    <div id='product' class="card border-0 text-center">
+                                        <div class="product-top">
+                                            <div class="product-overlay" (click)='setModalData(product.imgURL, product.price,
+                                                product.brand, product.desc, product.longDesc )' aria-hidden="true"
+                                                data-toggle="modal" data-target="#quickViewModal">
+                                                <i class="fa fa-eye"></i>
+                                            </div>
+                                            <a [routerLink]="['/products', productId]">
+                                                <img class="card-img-top" [src]="product.imgURL" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="card-text text-muted">{{product.brand}}</p>
+                                            <span class="prodcut-review text-warning">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                                <i class="far fa-star"></i>
+                                            </span>
+                                            <h6 class="card-title font-weight-normal">{{product.desc}}</h6>
+                                            <div>$<span class="product-price text-info">{{product.price}}</span></div>
+                                            <div class="btn btn-primary p-2">
+                                                <i class="fa fa-shopping-basket"></i>
+                                                Add to Cart
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div *ngIf='type == "Women"'>
+                        <div class="row">
+                            <ng-container *ngFor='let product of products; index as productId'>
+                                <div *ngIf='product.type == "women"' class="item col-md-4 col-12">
+                                    <div id='product' class="card border-0 text-center">
+                                        <div class="product-top">
+                                            <div class="product-overlay" (click)='setModalData(product.imgURL, product.price,
+                                                        product.brand, product.desc, product.longDesc )'
+                                                aria-hidden="true" data-toggle="modal" data-target="#quickViewModal">
+                                                <i class="fa fa-eye"></i>
+                                            </div>
+                                            <a [routerLink]="['/products', productId]">
+                                                <img class="card-img-top" [src]="product.imgURL" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="card-text text-muted">{{product.brand}}</p>
+                                            <span class="prodcut-review text-warning">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                                <i class="far fa-star"></i>
+                                            </span>
+                                            <h6 class="card-title font-weight-normal">{{product.desc}}</h6>
+                                            <div>$<span class="product-price text-info">{{product.price}}</span>
+                                            </div>
+                                            <div class="btn btn-primary p-2">
+                                                <i class="fa fa-shopping-basket"></i>
+                                                Add to Cart
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </section>

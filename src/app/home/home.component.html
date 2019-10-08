@@ -100,7 +100,7 @@
         <owl-carousel [options]="myCarouselOptions" [carouselClasses]="['owl-theme', 'sliding']">
             <ng-container *ngFor='let product of products; index as productId'>
                 <div *ngIf='product.type == "men"' class="item">
-                    <div class="card border-0 text-center">
+                    <div id='product' class="card border-0 text-center">
                         <div class="product-top">
                             <div class="product-overlay" 
                                 (click)='setModalData(product.imgURL, product.price,
@@ -146,7 +146,7 @@
         <owl-carousel [options]="myCarouselOptions" [carouselClasses]="['owl-theme', 'sliding']">
             <ng-container *ngFor='let product of products; index as productId'>
                 <div *ngIf='product.type == "women"' class="item">
-                    <div class="card border-0 text-center">
+                    <div id='product' class="card border-0 text-center">
                         <div class="product-top">
                             <div class="product-overlay" 
                                 (click)='setModalData(product.imgURL, product.price,

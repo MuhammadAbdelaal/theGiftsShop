@@ -1,0 +1,31 @@
+@import '../styles/colors';
+
+// accordion start
+.container {
+    .accordion {
+        .card-header {
+            &{
+                background-color: $primary;
+            }
+            button {
+                color: $white;
+                font-size: 18px;
+            }
+        }
+        .card-body {
+            ul {
+                .nav-item.active{
+                    background-color: $primaryA;
+                    color: $white;
+                }
+                .nav-item.danger {
+                    color: $primary; 
+                    background-color: $white;
+                }
+            }
+        }
+    }
+}
+
+// accordion end
+
