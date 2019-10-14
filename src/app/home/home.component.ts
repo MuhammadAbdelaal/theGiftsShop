@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../products.service';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -15,20 +16,20 @@ export class HomeComponent implements OnInit {
   modalBrand: String = "";
   modalDesc: String = "";
   modalLongDesc: String = "";
+  menClicked: boolean;
 
   constructor(_ProductsService: ProductsService) {
-    window.scroll(0,0); //prevent scrolling dowon as default behavior
+    window.scroll(0,0); //prevent scrolling down as default behavior
     
-    this.products = _ProductsService.products;
-    
+    this.products = _ProductsService.products;   
   }
 
-  setModalData(imagUrl:String, Price:Number, Brand: String, Desc: String, LongDesc: String) {
+  setModalData(imagUrl:String, price:Number, brand: String, desc: String, longDesc: String) {
     this.modalImage = imagUrl;
-    this.modalPrice = Price;
-    this.modalBrand = Brand;
-    this.modalDesc = Desc;
-    this.modalLongDesc = LongDesc;
+    this.modalPrice = price;
+    this.modalBrand = brand;
+    this.modalDesc = desc;
+    this.modalLongDesc = longDesc;
   }
 
 
